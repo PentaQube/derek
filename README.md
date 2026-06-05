@@ -219,4 +219,4 @@ sudo certbot --nginx -d derek.example.com      # Use your domain
 sudo systemctl restart nginx
 ```
 
-Now you can visit your domain to access Derek.
+Now you can visit your domain on a browser to access Derek.
