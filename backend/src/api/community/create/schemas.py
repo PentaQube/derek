@@ -6,4 +6,7 @@ from src.services.user.common.schemas import UserCreateData
 
 class create_community(BaseModel):
     name: NotEmptyStr = Field(..., json_schema_extra={"example": "New Community"})
-    users: Optional[List[UserCreateData]] = None
+    user_ids: Optional[list[int]] = Field(
+        default=None,
+        json_schema_extra={"example": [13, 12, 1]},
+    )

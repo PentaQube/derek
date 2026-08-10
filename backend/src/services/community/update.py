@@ -1,4 +1,5 @@
-from sqlalchemy.orm import Session
+from sqlalchemy import delete
+from sqlalchemy.orm import Session 
 from src.core.database import transactional
 from src.core.permissions import require_platform_admin
 from src.models.user import User
@@ -53,13 +54,13 @@ def update_community_service(
             ids_to_remove = current_ids - validated_user_ids
 
             # # Remove users
-            # if ids_to_remove:
-            #     session.execute(
-            #         delete(CommunityUser).where(
-            #             CommunityUser.community_id == community_id,
-            #             CommunityUser.user_id.in_(ids_to_remove),
-            #         )
-            #     )
+            if ids_to_remove:
+                session.execute(
+                    delete(CommunityUser).where(
+                        CommunityUser.community_id == community_id,
+                        CommunityUser.user_id.in_(ids_to_remove),
+                    )
+                )
 
             # Add users
             for user_id in ids_to_add:

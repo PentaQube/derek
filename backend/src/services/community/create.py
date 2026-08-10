@@ -1,10 +1,11 @@
 from sqlalchemy import select
 from sqlalchemy.orm import Session
+
 from src.core.database import transactional
 from src.core.permissions import require_platform_admin
-from src.models.community import Community
+from src.models.community import Community, CommunityUser
 from src.models.user import User, UserStatus
-from src.models.community import CommunityUser
+from src.services.user.common.loaders import validate_user_ids_or_raise
 
 
 def create_community_service(
@@ -12,9 +13,15 @@ def create_community_service(
 ) -> Community:
     require_platform_admin(current_user)
 
-    users_data = data.get("users")
+    user_ids = data.get("user_ids") or []
+
+    validated_user_ids = (
+        validate_user_ids_or_raise(session=session, user_ids=user_ids)
+        if user_ids
+        else []
+    )
+
     with transactional(session):
-        # 1. Create community
         new_community = Community(
             name=data["name"],
             created_by=current_user.id,
@@ -23,28 +30,12 @@ def create_community_service(
         session.add(new_community)
         session.flush()
 
-        # 2. Users are OPTIONAL
-        if users_data:
-            inactive_user_status_id = session.scalar(
-                select(UserStatus.id).where(UserStatus.code == "inactive")
+        for user_id in validated_user_ids:
+            session.add(
+                CommunityUser(
+                    community_id=new_community.id,
+                    user_id=user_id,
+                )
             )
-            for user_data in users_data:
-                user = session.scalar(
-                    select(User).where(User.email == user_data["email"])
-                )
-                if not user:
-                    user = User(
-                        name=user_data["name"],
-                        email=user_data["email"],
-                        is_platform_admin=False,
-                        user_status_id=inactive_user_status_id,
-                    )
-                    session.add(user)
-                    session.flush()
-                session.add(
-                    CommunityUser(
-                        community_id=new_community.id,
-                        user_id=user.id,
-                    )
-                )
+
         return new_community
