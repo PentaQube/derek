@@ -4,7 +4,7 @@ import Card from '@/core/components/card/Card'
 import StatCard from '@/core/components/card/StatCard'
 import PageHeader from '@/core/components/header/PageHeader'
 import Button from '@/core/components/button/Button'
-import { Clock, Copy, FileQuestionMark, MapPin, Trophy, UserRound } from 'lucide-vue-next'
+import { Clock, Copy, FileQuestionMark, MapPin, Trophy, UserRound ,QrCode} from 'lucide-vue-next'
 import { connectLiveSessionWs, type WsParticipant, type LiveSessionWsMessage } from '../ws'
 import {
   GetSessionLeaderboardApi,
@@ -24,6 +24,7 @@ import {
 import { useQuestionStore } from '@/modules/question/store'
 import { ANSWER_TYPES } from '@/modules/question/constants'
 import StatusChip from '@/core/components/statusChip/StatusChip'
+import QRCode from 'qrcode'
 
 type QuestionStatus = 'idle' | 'triggered'
 type AnswerCountMap = Record<string, number>
@@ -674,6 +675,24 @@ export default defineComponent({
       }
     }
 
+    const downloadQrSvg = async () => {
+      const url = `${window.location.origin}/#/session/${route.params.id}/join`
+      const svg = await QRCode.toString(url, {
+        type: 'svg',
+      })
+
+      const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' })
+      const objectUrl = URL.createObjectURL(blob)
+
+      const a = document.createElement('a')
+      a.href = objectUrl
+      a.download = `session-${sessionName.value}.svg`
+      document.body.appendChild(a)
+      a.click()
+      a.remove()
+      URL.revokeObjectURL(objectUrl)
+    }
+
     // onMounted(connect)
     // watch(sessionId, connect, { immediate: true }) //Todo -> //^ moved to onMount test and remove
 
@@ -762,8 +781,17 @@ export default defineComponent({
                     icon={() => <Copy class="h-4 w-4" />}
                     iconPosition="left"
                   >
-                    Copy Link
+                    Copy Links
                   </Button>
+                )}
+                {sessionStatus.value !== 'completed' && (
+                  <button
+                    onClick={downloadQrSvg}
+                    class="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 transition"
+                  >
+                    <QrCode size={16} />
+                      QR Code
+                  </button>
                 )}
                 {sessionStatus.value === 'upcoming' && (
                   <Button variant="primary" size="md" onClick={handleStartSession}>
