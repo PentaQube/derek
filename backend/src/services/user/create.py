@@ -22,14 +22,12 @@ def create_user_service(
     ensure_create_data_is_valid(session=session, data=data)
 
     with transactional(session):
-        user_status_id = session.scalar(
-            select(UserStatus.id).where(UserStatus.code ==  data.status)
-        )
+       
         new_user = User(
             name=data.name,
             email=data.email,
             is_platform_admin=data.is_platform_admin,
-            user_status_id=user_status_id,
+            user_status_id=data.user_status_id,
             created_by=current_user.id,
             updated_by=current_user.id,
         )
