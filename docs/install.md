@@ -193,4 +193,4 @@ Now you can visit your domain on a browser to access Derek.
 
 ## Next Steps
 
-Once Derek is running, follow the [Getting Started](docs/getting-started.md) guide to create your first community, question bank, and live quiz session.
+Once Derek is running, follow the [Getting Started](getting-started.md) guide to create your first community, question bank, and live quiz session.
