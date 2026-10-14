@@ -43,7 +43,7 @@ async def list_session(
     community_id: int | None = Depends(is_commmunity_user),
     session: Session = Depends(get_session),
 ):
-    message_200 = "Session list successfully."
+    message_200 = "Session listed successfully."
     message_500 = "Failed to Session list."
 
     try:

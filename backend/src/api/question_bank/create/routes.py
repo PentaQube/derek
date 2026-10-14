@@ -31,7 +31,7 @@ async def create_question_bank(
     session: Session = Depends(get_session),
     return_data: Optional[bool] = None,
 ):
-    message_200 = "Question_bank create successfully."
+    message_200 = "Question_bank created successfully."
     message_500 = "Failed to Question_bank create."
 
     try:

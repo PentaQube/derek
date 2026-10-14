@@ -28,7 +28,7 @@ async def create_question(
     session: Session = Depends(get_session),
     return_data: bool | None = None,
 ):
-    message_200 = "Question create successfully."
+    message_200 = "Question created successfully."
     message_500 = "Failed to Question create."
 
     try:

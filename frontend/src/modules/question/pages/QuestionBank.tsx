@@ -557,13 +557,13 @@ export default defineComponent({
                 >
                   {{
                     headerAction: () => (
-                      <div class="flex gap-3">
+                      <div class="flex flex-wrap gap-3">
                         {/* Search Input */}
-                        <div class="relative">
+                        <div class="relative min-w-0 flex-1">
                           <input
                             type="text"
                             placeholder="Search questions..."
-                            class="rounded-lg border border-gray-300 px-4 py-2 pr-10 focus:border-blue-500 focus:outline-none"
+                            class="w-full rounded-lg border border-gray-300 px-4 py-2 pr-28 focus:border-blue-500 focus:outline-none"
                             value={questionSearch.value}
                             onInput={(e: any) => (questionSearch.value = e.target.value)}
                             onKeyup={(e: KeyboardEvent) => e.key === 'Enter' && handleSearch()}

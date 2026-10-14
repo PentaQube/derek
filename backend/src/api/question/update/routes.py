@@ -29,7 +29,7 @@ async def update_question(
     session: Session = Depends(get_session),
     return_data: bool | None = None,
 ):
-    message_200 = "Question update successfully."
+    message_200 = "Question updated successfully."
     message_500 = "Failed to Question update."
 
     try:

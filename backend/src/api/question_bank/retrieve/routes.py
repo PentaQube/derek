@@ -39,7 +39,7 @@ async def retrieve_question_bank(
     current_user: User = Depends(get_current_user),
     session: Session = Depends(get_session),
 ):
-    message_200 = "Question_bank retrieve successfully."
+    message_200 = "Question_bank retrieved successfully."
     message_500 = "Failed to Question_bank retrieve."
     try:
         question_bank = retrieve_question_bank_service(

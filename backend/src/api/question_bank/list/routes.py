@@ -38,7 +38,7 @@ async def list_question_bank(
     community_id: int = Depends(is_commmunity_user),
     session: Session = Depends(get_session),
 ):
-    message_200 = "Question_bank list successfully."
+    message_200 = "Question_bank listed successfully."
     message_500 = "Failed to Question_bank list."
     try:
         question_banks = list_question_bank_service(

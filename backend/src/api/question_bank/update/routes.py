@@ -33,7 +33,7 @@ async def update_question_bank(
     session: Session = Depends(get_session),
     return_data: Optional[bool] = None,
 ):
-    message_200 = "Question_bank update successfully."
+    message_200 = "Question_bank updated successfully."
     message_500 = "Failed to Question_bank update."
 
     try:
