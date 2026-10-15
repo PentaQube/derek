@@ -58,13 +58,13 @@ authenticate_examples: dict[int | str, dict[str, Any]] = {
 
 refresh_examples: dict[int | str, dict[str, Any]] = {
     200: {
-        "description": "New access_token provisioned successfully.",
+        "description": "New access token provisioned successfully.",
         "content": {
             "application/json": {
                 "example": {
                     "status": "success",
                     "code": 200,
-                    "message": "New access_token provisioned successfully.",
+                    "message": "New access token provisioned successfully.",
                     "data": {
                         "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzAyODg5MDQsInN1YiI6ImpvaG5AZXhhbXBsZS5jb20ifQ.tFeoJtUjepRaJ9WQRLwU89OkcOdLcs"
                     },
@@ -73,13 +73,13 @@ refresh_examples: dict[int | str, dict[str, Any]] = {
         },
     },
     401: {
-        "description": "Invalid refresh_token provided.",
+        "description": "Invalid refresh token provided.",
         "content": {
             "application/json": {
                 "example": {
                     "status": "error",
                     "code": 401,
-                    "message": "Invalid refresh_token provided.",
+                    "message": "Invalid refresh token provided.",
                 }
             }
         },
@@ -98,13 +98,13 @@ refresh_examples: dict[int | str, dict[str, Any]] = {
         },
     },
     500: {
-        "description": "Failed to provision new access_token.",
+        "description": "Failed to provision a new access token.",
         "content": {
             "application/json": {
                 "example": {
                     "status": "error",
                     "code": 500,
-                    "message": "Failed to provision new access_token.",
+                    "message": "Failed to provision a new access token.",
                 }
             }
         },

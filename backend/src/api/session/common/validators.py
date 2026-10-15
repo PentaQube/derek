@@ -9,7 +9,7 @@ from src.models.session import Session as SessionModel, SessionStatus
 def validate_session_id(
     session_id: Optional[int] = None, session: Session = Depends(get_session)
 ):
-    message_404 = f"Session with ID : {session_id} not found"
+    message_404 = f"Session with ID {session_id} not found."
 
     if session_id:
         session_data = session.scalar(
@@ -23,7 +23,7 @@ def validate_session_id(
 def validate_session_status_id(
     session_status_id: Optional[int] = None, session: Session = Depends(get_session)
 ):
-    message_404 = f"Session with status: {session_status_id} not found"
+    message_404 = f"Session status with ID {session_status_id} not found."
 
     if session_status_id:
         status_data = session.scalar(

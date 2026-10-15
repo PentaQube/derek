@@ -10,7 +10,7 @@ from src.models.session import AnswerStatus, SessionParticipant, SessionQuestion
 def get_answer_status_or_raise(*, session: Session, code: str) -> AnswerStatus:
     obj = session.scalar(select(AnswerStatus).where(AnswerStatus.code == code))
     if obj is None:
-        raise NotFoundError(f"AnswerStatus not found: code={code}")
+        raise NotFoundError(f"Answer status not found: code {code}.")
     return obj
 
 
@@ -25,7 +25,7 @@ def get_participant_by_session_user_or_raise(
     )
     if obj is None:
         raise NotFoundError(
-            f"SessionParticipant not found: session_id={session_id}, user_id={user_id}"
+            f"Session participant not found for session ID {session_id} and user ID {user_id}."
         )
     return obj
 
@@ -33,7 +33,7 @@ def get_participant_by_session_user_or_raise(
 def get_participant_or_raise(*, session: Session, id: int) -> SessionParticipant:
     obj = session.get(SessionParticipant, id)
     if obj is None:
-        raise NotFoundError(f"SessionParticipant not found: id={id}")
+        raise NotFoundError(f"Session participant not found: ID {id}.")
     return obj
 
 
@@ -48,6 +48,6 @@ def get_session_question_by_session_question_or_raise(
     )
     if obj is None:
         raise NotFoundError(
-            f"SessionQuestion not found: session_id={session_id}, question_id={question_id}"
+            f"Session question not found for session ID {session_id} and question ID {question_id}."
         )
     return obj

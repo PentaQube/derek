@@ -12,7 +12,7 @@ from ..common.out import SessionQuestionOut
 
 router = APIRouter(prefix="")
 
-DESCRIPTION = "Endpoint to update session_question."
+DESCRIPTION = "Endpoint to update session questions."
 
 
 @router.put(

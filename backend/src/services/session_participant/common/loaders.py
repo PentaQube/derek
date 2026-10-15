@@ -14,7 +14,7 @@ def get_participant_or_raise(*, session: Session, id: int) -> SessionParticipant
     participant = get_participant(session=session, id=id)
 
     if not participant:
-        raise NotFoundError(f"SessionParticipant with id={id} not found")
+        raise NotFoundError(f"Session participant with ID {id} not found.")
 
     return participant
 

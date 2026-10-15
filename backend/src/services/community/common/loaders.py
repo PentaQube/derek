@@ -28,7 +28,7 @@ def get_community_or_raise(
     community = get_community(session=session, id=id, name=name)
     if community is None:
         identifier = id if id is not None else name
-        raise NotFoundError(f"Community with identifier {identifier} not found")
+        raise NotFoundError(f"Community with identifier {identifier} not found.")
     return community
 
 

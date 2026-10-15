@@ -42,7 +42,7 @@ def forgot_password_service(
     user = get_user_or_raise(session=session, email=email)
 
     if user.email is None:
-        raise AuthenticationError("Invalid Email.")
+        raise AuthenticationError("Invalid email.")
 
         #  Create token
     payload = {

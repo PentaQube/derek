@@ -30,8 +30,8 @@ async def retrieve_question(
     current_user: User = Depends(get_current_user),
     session: Session = Depends(get_session),
 ):
-    message_200 = "Question retrieve successfully."
-    message_500 = "Failed to Question retrieve."
+    message_200 = "Question retrieved successfully."
+    message_500 = "Failed to retrieve question."
 
     try:
 

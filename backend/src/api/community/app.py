@@ -13,7 +13,7 @@ app = FastAPI()
 
 # Update document
 app.title = "Derek Community APIs"
-app.description = "API endpoints for user CRUD."
+app.description = "API endpoints for community CRUD."
 
 # Register the exception handlers
 register_exception_handlers(app)

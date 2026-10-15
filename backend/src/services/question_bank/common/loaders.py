@@ -28,6 +28,6 @@ def get_QB_or_raise(
     QuestionBank = get_QB(session=session, id=id)
 
     if QuestionBank is None:
-        raise NotFoundError(f"Question Bank with id: {id} not found")
+        raise NotFoundError(f"Question bank with ID {id} not found.")
 
     return QuestionBank

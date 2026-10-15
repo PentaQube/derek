@@ -15,11 +15,11 @@ router = APIRouter(prefix="/tokens")
 
 AUTHENTICATE_DESCRIPTION = """
     Endpoint to authenticate a user.
-    The endpoint returns access_token and refresh_token.
+    The endpoint returns an access token and a refresh token.
 """
 REFRESH_DESCRIPTION = """
     Endpoint to re-authenticate a user.
-    The endpoint returns new access_token.
+    The endpoint returns a new access token.
 """
 
 
@@ -78,9 +78,9 @@ async def authenticate(
     responses=examples.refresh_examples,
 )
 async def refresh(request: Request, session: Session = Depends(get_session)):
-    message_200 = "New access_token provisioned successfully."
-    message_401 = "Invalid or missing refresh_token."
-    message_500 = "Failed to provision new access_token."
+    message_200 = "New access token provisioned successfully."
+    message_401 = "Invalid or missing refresh token."
+    message_500 = "Failed to provision a new access token."
 
     try:
         # ✅ Extract refresh_token from cookie

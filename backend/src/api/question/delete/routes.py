@@ -25,7 +25,7 @@ async def delete_question(
     session: Session = Depends(get_session),
 ):
     message_200 = "Question deleted successfully."
-    message_500 = "Failed to Question delete."
+    message_500 = "Failed to delete question."
 
     try:
 

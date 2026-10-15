@@ -29,7 +29,9 @@ def get_session_status_or_raise(
 
     if session_status is None:
         identifier = id if id is not None else code
-        raise NotFoundError(f"Session status with identifier {identifier} not found")
+        raise NotFoundError(
+            f"Session status with identifier {identifier} not found."
+        )
 
     return session_status
 
@@ -56,6 +58,6 @@ def get_session_or_raise(*, session: Session, id: int) -> SessionModel:
     session_data = get_session(session=session, id=id)
 
     if session_data is None:
-        raise NotFoundError(f"Session with identifier {id} not found")
+        raise NotFoundError(f"Session with identifier {id} not found.")
 
     return session_data

@@ -96,7 +96,7 @@ def join_live_session_by_link_service(
     )
 
     if existing:
-        raise AlreadyExistsError("User already joined this session")
+        raise AlreadyExistsError("User has already joined this session.")
 
     with transactional(session):
         participant = SessionParticipant(session_id=session_id, user_id=user.id)

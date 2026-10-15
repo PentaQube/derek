@@ -15,7 +15,7 @@ from src.api.question_bank.common.out import QuestionBankOut
 router = APIRouter(prefix="")
 
 DESCRIPTION = """
-    Endpoint to create question_bank.
+    Endpoint to create a question bank.
 """
 
 
@@ -31,8 +31,8 @@ async def create_question_bank(
     session: Session = Depends(get_session),
     return_data: Optional[bool] = None,
 ):
-    message_200 = "Question_bank create successfully."
-    message_500 = "Failed to Question_bank create."
+    message_200 = "Question bank created successfully."
+    message_500 = "Failed to create question bank."
 
     try:
         new_community = create_question_bank_service(

@@ -14,7 +14,7 @@ from src.services.session_question.common.schemas import DeleteSessionQuestionDa
 
 router = APIRouter(prefix="")
 
-DESCRIPTION = "Endpoint to delete session_question."
+DESCRIPTION = "Endpoint to delete a session question."
 
 
 @router.delete(
@@ -28,8 +28,8 @@ async def delete_selected_session_questions(
     current_user: User = Depends(get_current_user),
     session: Session = Depends(get_session),
 ):
-    message_200 = "SessionQuestion delete successfully."
-    message_500 = "Failed to session_question delete."
+    message_200 = "Session question deleted successfully."
+    message_500 = "Failed to delete the session question."
 
     try:
         deleted_count = delete_session_questions_service(

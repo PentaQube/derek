@@ -12,7 +12,7 @@ from src.services.question_bank.delete import delete_question_bank_service
 router = APIRouter(prefix="")
 
 DESCRIPTION = """
-    Endpoint to delete question_bank.
+    Endpoint to delete a question bank.
 """
 
 
@@ -27,8 +27,8 @@ async def delete_question_bank(
     current_user: User = Depends(get_current_user),
     session: Session = Depends(get_session),
 ):
-    message_200 = "Question_bank delete successfully."
-    message_500 = "Failed to Question_bank delete."
+    message_200 = "Question bank deleted successfully."
+    message_500 = "Failed to delete question bank."
     try:
         delete_question_bank_service(
             session=session,

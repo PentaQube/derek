@@ -12,7 +12,7 @@ from src.services.session_question.common.schemas import CreateSessionQuestionDa
 
 router = APIRouter(prefix="")
 
-DESCRIPTION = "Endpoint to create session_question."
+DESCRIPTION = "Endpoint to create a session question."
 
 
 @router.post(
@@ -26,8 +26,8 @@ async def create_session_question(
     session: Session = Depends(get_session),
     return_data: bool | None = None,
 ):
-    message_200 = "SessionQuestion create successfully."
-    message_500 = "Failed to session_question create."
+    message_200 = "Session question created successfully."
+    message_500 = "Failed to create the session question."
 
     try:
 

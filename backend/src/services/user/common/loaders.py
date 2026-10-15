@@ -30,7 +30,7 @@ def get_user_or_raise(
     user = get_user(session=session, id=id, email=email)
     if user is None:
         identifier = id if id is not None else email
-        raise NotFoundError(f"User with identifier {identifier} not found")
+        raise NotFoundError(f"User with identifier {identifier} not found.")
 
     return user
 
@@ -59,7 +59,7 @@ def get_user_status_or_raise(
 
     if user_status is None:
         identifier = id if id is not None else code
-        raise NotFoundError(f"User with identifier {identifier} not found")
+        raise NotFoundError(f"User with identifier {identifier} not found.")
 
     return user_status
 
