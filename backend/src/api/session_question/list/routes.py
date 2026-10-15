@@ -16,7 +16,7 @@ from src.services.session_question.list import list_session_question_service
 
 router = APIRouter(prefix="")
 
-DESCRIPTION = "Endpoint to list session_question."
+DESCRIPTION = "Endpoint to list session questions."
 
 
 @router.get(
@@ -32,8 +32,8 @@ async def list_session_question(
     current_user: User = Depends(get_current_user),
     session: Session = Depends(get_session),
 ):
-    message_200 = "SessionQuestion listed successfully."
-    message_500 = "Failed to list session_question."
+    message_200 = "Session questions listed successfully."
+    message_500 = "Failed to list session questions."
 
     try:
         results = list_session_question_service(

@@ -20,7 +20,7 @@ from src.api.question.common.out import QuestionOut
 
 router = APIRouter(prefix="")
 
-DESCRIPTION = "Endpoint to retrieve session_question."
+DESCRIPTION = "Endpoint to retrieve a session question."
 
 
 @router.get(
@@ -36,8 +36,8 @@ async def retrieve_session_question(
     current_user: User = Depends(get_current_user),
     session: Session = Depends(get_session),
 ):
-    message_200 = "SessionQuestion retrieved successfully."
-    message_500 = "Failed to retrieve SessionQuestion."
+    message_200 = "Session question retrieved successfully."
+    message_500 = "Failed to retrieve the session question."
 
     try:
         session_question_obj = retrieve_session_question_service(

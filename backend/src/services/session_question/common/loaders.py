@@ -20,7 +20,7 @@ def get_session_question(
 def get_session_question_or_raise(*, session: Session, id: int) -> SessionQuestion:
     session_question = get_session_question(session=session, id=id)
     if session_question is None:
-        raise NotFoundError(f"SessionQuestion with identifier {id} not found")
+        raise NotFoundError(f"Session question with ID {id} not found.")
     return session_question
 
 

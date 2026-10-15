@@ -21,7 +21,7 @@ from . import dependencies
 router = APIRouter(prefix="")
 
 DESCRIPTION = """
-    Endpoint to retrieve question_bank.
+    Endpoint to retrieve a question bank.
 """
 
 
@@ -39,8 +39,8 @@ async def retrieve_question_bank(
     current_user: User = Depends(get_current_user),
     session: Session = Depends(get_session),
 ):
-    message_200 = "Question_bank retrieve successfully."
-    message_500 = "Failed to Question_bank retrieve."
+    message_200 = "Question bank retrieved successfully."
+    message_500 = "Failed to retrieve question bank."
     try:
         question_bank = retrieve_question_bank_service(
             session=session,

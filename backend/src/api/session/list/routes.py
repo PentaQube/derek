@@ -43,8 +43,8 @@ async def list_session(
     community_id: int | None = Depends(is_commmunity_user),
     session: Session = Depends(get_session),
 ):
-    message_200 = "Session list successfully."
-    message_500 = "Failed to Session list."
+    message_200 = "Sessions listed successfully."
+    message_500 = "Failed to list sessions."
 
     try:
         sessions_data = list_session_service(
@@ -129,7 +129,7 @@ async def list_session(
 @router.get("/status", response_model=APIResponse, description=DESCRIPTION)
 async def get_session_status(session: Session = Depends(get_session)):
     message_200 = "Session status fetched successfully."
-    message_500 = "Failed to fetch Session status."
+    message_500 = "Failed to fetch session status."
     try:
         session_status = get_session_status_service(session=session)
         data = [
@@ -153,8 +153,8 @@ async def session_status_counts(
     community_id: int | None = Depends(is_commmunity_user),
     session: Session = Depends(get_session),
 ):
-    message_200 = "Fetched Session counts successfully."
-    message_500 = "Failed to fetch Session counts "
+    message_200 = "Session counts fetched successfully."
+    message_500 = "Failed to fetch session counts."
     try:
         session_counts = session_status_counts_service(
             session=session,
@@ -172,7 +172,7 @@ async def session_status_counts(
 @router.get("/answer-status", response_model=APIResponse, description=DESCRIPTION)
 async def get_session_status(session: Session = Depends(get_session)):
     message_200 = "Answer status fetched successfully."
-    message_500 = "Failed to fetch Answer status."
+    message_500 = "Failed to fetch answer status."
     try:
         session_status = get_answer_status_service(session=session)
         data = [

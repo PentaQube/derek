@@ -20,7 +20,9 @@ def update_session_participant_service(
     participant = session.get(SessionParticipant, participant_id)
 
     if not participant:
-        raise NotFoundError(f"SessionParticipant with id={participant_id} not found")
+        raise NotFoundError(
+            f"Session participant with ID {participant_id} not found."
+        )
 
     with transactional(session):
         if data.total_score is not None:

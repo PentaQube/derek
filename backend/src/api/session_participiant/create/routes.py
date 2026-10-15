@@ -28,8 +28,8 @@ async def add_session_parcipiant(
     session: Session = Depends(get_session),
     return_data: Optional[bool] = None,
 ):
-    message_200 = "Joined session succesfully"
-    message_500 = "Failed to join session"
+    message_200 = "Joined the session successfully."
+    message_500 = "Failed to join the session."
 
     try:
         participiant = add_session_participiants_service(

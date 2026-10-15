@@ -29,8 +29,8 @@ async def update_session(
     session: Session = Depends(get_session),
     return_data: bool | None = None,
 ):
-    message_200 = "Session update successfully."
-    message_500 = "Failed to Session update."
+    message_200 = "Session updated successfully."
+    message_500 = "Failed to update the session."
 
     try:
 

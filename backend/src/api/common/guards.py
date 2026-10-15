@@ -22,7 +22,7 @@ async def get_current_user(
     session: Session = Depends(get_session),
     token: str = Depends(reuseable_oauth),
 ) -> User:
-    message_401 = "Invalid access_token provided."
+    message_401 = "Invalid access token provided."
     message_500 = "Failed to get current user."
 
     try:

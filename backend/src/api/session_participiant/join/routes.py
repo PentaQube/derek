@@ -31,8 +31,8 @@ async def join_live_session(
     return_data: Optional[bool] = None,
     expand: Optional[str] = None,
 ):
-    message_200 = "Joined live session successfully"
-    message_500 = "Failed to join live session"
+    message_200 = "Joined the live session successfully."
+    message_500 = "Failed to join the live session."
 
     try:
         participant, created, participant_token = (

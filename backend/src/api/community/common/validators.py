@@ -9,7 +9,7 @@ from src.models.community import Community
 def validate_community_id(
     community_id: Optional[int] = None, session: Session = Depends(get_session)
 ):
-    message_404 = f"community with id: {community_id} not found"
+    message_404 = f"Community with ID {community_id} not found."
 
     if community_id:
         status_data = session.scalar(

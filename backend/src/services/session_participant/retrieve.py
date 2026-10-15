@@ -22,7 +22,9 @@ def retrieve_session_participant_service(
     participant = session.scalar(stmt)
 
     if not participant:
-        raise NotFoundError(f"SessionParticipant with id={participant_id} not found")
+        raise NotFoundError(
+            f"Session participant with ID {participant_id} not found."
+        )
 
     return participant
 
@@ -35,7 +37,7 @@ def get_participiant_last_question(
 
     if not participant or int(participant.session_id) != int(session_id):
         raise NotFoundError(
-            "SessionParticipant not found: id={participant_id}, session_id={session_id}"
+            f"Session participant not found: ID {participant_id}, session ID {session_id}."
         )
 
     last_triggered_question_id = session.scalar(

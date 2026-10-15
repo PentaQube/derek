@@ -11,7 +11,7 @@ from .update.routes import router as update_router
 app = FastAPI()
 
 app.title = "SessionQuestion APIs"
-app.description = "API endpoints for session_question CRUD."
+app.description = "API endpoints for session question CRUD."
 
 register_exception_handlers(app)
 

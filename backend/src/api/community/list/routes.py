@@ -33,8 +33,8 @@ async def list_community(
     current_user: User = Depends(is_platform_admin),
     session: Session = Depends(get_session),
 ):
-    message_200 = "Community list success."
-    message_500 = "Community list failed."
+    message_200 = "Communities listed successfully."
+    message_500 = "Failed to list communities."
 
     try:
         communities = list_community_service(

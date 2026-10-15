@@ -20,7 +20,7 @@ from . import dependencies
 router = APIRouter(prefix="")
 
 DESCRIPTION = """
-    Endpoint to list question_bank.
+    Endpoint to list question banks.
 """
 
 
@@ -38,8 +38,8 @@ async def list_question_bank(
     community_id: int = Depends(is_commmunity_user),
     session: Session = Depends(get_session),
 ):
-    message_200 = "Question_bank list successfully."
-    message_500 = "Failed to Question_bank list."
+    message_200 = "Question banks listed successfully."
+    message_500 = "Failed to list question banks."
     try:
         question_banks = list_question_bank_service(
             session=session, params=params, community_id=community_id

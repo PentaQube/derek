@@ -31,7 +31,7 @@ async def delete_community(
             session=session, community_id=community_id, current_user=current_user
         )
         return APIResponse(
-            status="success", code=200, message="Community delete success"
+            status="success", code=200, message="Community deleted successfully."
         )
     except ServiceError:
         raise

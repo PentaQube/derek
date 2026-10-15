@@ -37,7 +37,7 @@ async def start_question(
         )
 
         if payload.get("error") == "session_question_not_found":
-            raise NotFoundError("Question not found in this session")
+            raise NotFoundError("Question not found in this session.")
 
         await ws_manager.broadcast_text(str(session_id), json.dumps(payload))
         session.commit()

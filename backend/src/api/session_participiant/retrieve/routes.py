@@ -61,7 +61,7 @@ async def get_last_queation(
     session: Session = Depends(get_session),
     current_user=Depends(get_participant),
 ):
-    message_200 = "last question retrieved successfully."
+    message_200 = "Last question retrieved successfully."
     message_500 = "Failed to retrieve last question."
 
     try:

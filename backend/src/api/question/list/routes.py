@@ -30,8 +30,8 @@ async def list_question(
     current_user: User = Depends(get_current_user),
     session: Session = Depends(get_session),
 ):
-    message_200 = "Question list successfully."
-    message_500 = "Failed to Question list."
+    message_200 = "Questions listed successfully."
+    message_500 = "Failed to list questions."
 
     try:
         questions = list_question_service(
@@ -80,8 +80,8 @@ async def list_question(
 
 @router.get("/answer-type", response_model=APIResponse, description=DESCRIPTION)
 async def get_session_status(session: Session = Depends(get_session)):
-    message_200 = "Answer Type  fetched successfully."
-    message_500 = "Failed to fetch statusAnswer Type."
+    message_200 = "Answer type fetched successfully."
+    message_500 = "Failed to fetch answer type."
     try:
         session_status = get_answer_type_service(session=session)
         data = [

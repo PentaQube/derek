@@ -28,8 +28,8 @@ async def create_session(
     session: Session = Depends(get_session),
     return_data: bool | None = None,
 ):
-    message_200 = "Session create successfully."
-    message_500 = "Failed to Session create."
+    message_200 = "Session created successfully."
+    message_500 = "Failed to create the session."
 
     try:
 

@@ -16,7 +16,7 @@ from src.models.user import User
 router = APIRouter(prefix="")
 
 DESCRIPTION = """
-    Endpoint to update question_bank.
+    Endpoint to update a question bank.
 """
 
 
@@ -33,8 +33,8 @@ async def update_question_bank(
     session: Session = Depends(get_session),
     return_data: Optional[bool] = None,
 ):
-    message_200 = "Question_bank update successfully."
-    message_500 = "Failed to Question_bank update."
+    message_200 = "Question bank updated successfully."
+    message_500 = "Failed to update question bank."
 
     try:
         update_QB = update_question_bank_service(

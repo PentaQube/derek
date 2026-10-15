@@ -3,7 +3,7 @@ class ServiceError(Exception):
 
 
 class AuthenticationError(ServiceError):
-    def __init__(self, message: str = "Invalid email or password"):
+    def __init__(self, message: str = "Invalid email or password."):
         super().__init__(message)
 
 

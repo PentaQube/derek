@@ -25,7 +25,7 @@ def get_answer_type(
 def get_answer_type_or_raise(*, session: Session, id: int) -> AnswerType:
     answerType = get_answer_type(session=session, id=id)
     if answerType is None:
-        raise NotFoundError(f"Answer Type with {id} not found")
+        raise NotFoundError(f"Answer type with ID {id} not found.")
     return answerType
 
 
@@ -36,5 +36,5 @@ def get_question(*, session: Session, id: int) -> Question | None:
 def get_question_or_raise(*, session: Session, id: int) -> Question:
     question = session.scalar(select(Question).where(Question.id == id))
     if not question:
-        raise NotFoundError("Question not found")
+        raise NotFoundError("Question not found.")
     return question
